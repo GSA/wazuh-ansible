@@ -5,6 +5,8 @@
 [![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://documentation.wazuh.com)
 [![Documentation](https://img.shields.io/badge/web-view-green.svg)](https://wazuh.com)
 
+[![CircleCI](https://circleci.com/gh/GSA/wazuh-ansible.svg?style=svg)](https://circleci.com/gh/GSA/wazuh-ansible)
+
 These playbooks install and configure Wazuh agent, manager and Elastic Stack.
 
 ## Documentation

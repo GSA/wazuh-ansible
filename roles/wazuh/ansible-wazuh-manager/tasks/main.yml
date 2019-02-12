@@ -41,7 +41,7 @@
     creates: sslmanager.cert
     chdir: /var/ossec/etc/
   tags:
-      - config
+    - config
   when: not wazuh_manager_config.authd.ssl_agent_ca is not none
 
 - name: Copy CA, SSL key and cert for authd

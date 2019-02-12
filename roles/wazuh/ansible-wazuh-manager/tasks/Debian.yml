@@ -6,9 +6,9 @@
     cache_valid_time: 3600
   vars:
     packages:
-     - apt-transport-https
-     - ca-certificates
-     - python-urllib3
+      - apt-transport-https
+      - ca-certificates
+      - python-urllib3
 
 - name: Debian/Ubuntu | Installing Wazuh repository key
   apt_key: url=https://packages.wazuh.com/key/GPG-KEY-WAZUH
@@ -33,27 +33,27 @@
     cis_distribution_filename: cis_debian_linux_rcl.txt
 
 - when:
-   - wazuh_manager_config.cis_cat.disable == 'no'
-   - wazuh_manager_config.cis_cat.install_java == 'yes'
+    - wazuh_manager_config.cis_cat.disable == 'no'
+    - wazuh_manager_config.cis_cat.install_java == 'yes'
   block:
-  - name: Debian/Ubuntu | Setting webupd8 repository
-    apt_repository:
-      repo: 'ppa:webupd8team/java'
-      codename: 'xenial'
-      update_cache: yes
+    - name: Debian/Ubuntu | Setting webupd8 repository
+      apt_repository:
+        repo: 'ppa:webupd8team/java'
+        codename: 'xenial'
+        update_cache: yes
 
-  - name: Debian/Ubuntu | Accept Oracle Java 8 license
-    debconf:
-      name: oracle-java8-installer
-      question: shared/accepted-oracle-license-v1-1
-      value: true
-      vtype: boolean
+    - name: Debian/Ubuntu | Accept Oracle Java 8 license
+      debconf:
+        name: oracle-java8-installer
+        question: shared/accepted-oracle-license-v1-1
+        value: true
+        vtype: boolean
 
-  - name: Debian/Ubuntu | Oracle Java 8 installer
-    apt:
-      name: oracle-java8-installer
-      state: present
-      cache_valid_time: 3600
+    - name: Debian/Ubuntu | Oracle Java 8 installer
+      apt:
+        name: oracle-java8-installer
+        state: present
+        cache_valid_time: 3600
   tags:
     - init
 

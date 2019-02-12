@@ -1,6 +1,6 @@
 ---
 - name: Windows | Check if Program Files (x86) exists
-  win_stat: 
+  win_stat:
     path: C:\Program Files (x86)
   register: check_path
 
